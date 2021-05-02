@@ -7,4 +7,4 @@ Copy the .vst3 component in the build directory to the vst3 location on your mac
 # License: 
 GPL
 # Picture: 
-<img width="397" alt="MDAPPicture" src="https://user-images.githubusercontent.com/60676699/116797494-485fb880-aab4-11eb-8109-5674e5070fb5.png">
+<img width="395" alt="MDAPPicture" src="https://user-images.githubusercontent.com/60676699/116799156-9b416c00-aac4-11eb-8197-9c8503da9887.png"> 
