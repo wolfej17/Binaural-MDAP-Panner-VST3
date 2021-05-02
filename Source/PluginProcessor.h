@@ -69,11 +69,18 @@ public:
     float initSampleRate;
     // Crossover Filter
     CrossoverFilter crossoverFilter;
+    // TODO: Should the value tree state be kept private? Might as well.
+    // Value tree state
+    juce::AudioProcessorValueTreeState parameters;
 
 private:
     //==============================================================================
-    // Random value for white noise generation
-    juce::Random random;
+    std::atomic<float>* azimuthParameter  = nullptr;
+    std::atomic<float>* elevationParameter = nullptr;
+    std::atomic<float>* horizontalSpreadParameter = nullptr;
+    std::atomic<float>* verticalSpreadParameter = nullptr;
+    std::atomic<float>* crossoverParameter = nullptr;
+    std::atomic<float>* gainParameter = nullptr;
     // Variables to hold data about speaker configuration
     int numInlineSpeakers;
     int totalNumberSpeakers;
@@ -99,14 +106,5 @@ private:
     float scaledElevationGain;
     // Coefficient to normalize
     float normalizationCoefficient;
-    std::size_t index = 0;
-    // Value tree state
-    juce::AudioProcessorValueTreeState parameters;
-    std::atomic<float>* azimuthParameter  = nullptr;
-    std::atomic<float>* elevationParameter = nullptr;
-    std::atomic<float>* horizontalSpreadParameter = nullptr;
-    std::atomic<float>* verticalSpreadParameter = nullptr;
-    std::atomic<float>* crossoverParameter = nullptr;
-    std::atomic<float>* gainParameter = nullptr;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MDAPPannerAudioProcessor)
 };

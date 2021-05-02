@@ -45,8 +45,8 @@ private:
     juce::Label verticalSpreadLabel;
     juce::Label horizontalSpreadLabel;
     // Head pictures
+    juce::Image headTopImage;
     juce::Image headFrontImage;
-    juce::Image headSideImage;
     // Variable to store the unaltered azimuth value when the elevation knob value is set to change the azimuth knob value
     int previousAzimuthValue;
     bool azimuthChanged = false;

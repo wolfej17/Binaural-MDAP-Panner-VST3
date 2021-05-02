@@ -23,7 +23,6 @@ MDAPPannerAudioProcessorEditor::MDAPPannerAudioProcessorEditor (MDAPPannerAudioP
     azimuthKnob.setRotaryParameters(0, 2 * M_PI, false);
     azimuthKnob.setColour(azimuthKnob.textBoxBackgroundColourId, juce::Colours::black);
     azimuthKnob.setName("Azimuth");
-    azimuthKnob.setValue(0);
     azimuthKnob.addListener(this);
     addAndMakeVisible(&azimuthKnob);
     // Elevation
@@ -34,7 +33,6 @@ MDAPPannerAudioProcessorEditor::MDAPPannerAudioProcessorEditor (MDAPPannerAudioP
     elevationKnob.setTextBoxStyle(juce::Slider::TextBoxAbove, true, 30, 20);
     elevationKnob.setColour(azimuthKnob.textBoxBackgroundColourId, juce::Colours::black);
     elevationKnob.setName("Elevation");
-    elevationKnob.setValue(0);
     elevationKnob.addListener(this);
     addAndMakeVisible(&elevationKnob);
     // Crossover Knob
@@ -44,7 +42,6 @@ MDAPPannerAudioProcessorEditor::MDAPPannerAudioProcessorEditor (MDAPPannerAudioP
     crossoverKnob.setTextBoxStyle(juce::Slider::TextBoxAbove, true, 40, 20);
     crossoverKnob.setRotaryParameters(1.25 * M_PI, 2.75 * M_PI, true);
     crossoverKnob.setColour(azimuthKnob.textBoxBackgroundColourId, juce::Colours::black);
-    crossoverKnob.setValue(150.0f);
     crossoverKnob.setSkewFactorFromMidPoint(250.0);
     crossoverKnob.setName("Crossover");
     addAndMakeVisible(&crossoverKnob);
@@ -54,7 +51,6 @@ MDAPPannerAudioProcessorEditor::MDAPPannerAudioProcessorEditor (MDAPPannerAudioP
     horizontalSpreadKnob.setRange(0, 1, 0.0001);
     horizontalSpreadKnob.setTextBoxStyle(juce::Slider::NoTextBox, true, 40, 5);
     horizontalSpreadKnob.setColour(azimuthKnob.textBoxBackgroundColourId, juce::Colours::black);
-    horizontalSpreadKnob.setValue(0.0f);
     addAndMakeVisible(&horizontalSpreadKnob);
     horizontalSpreadKnob.setName("HorizontalSpread");
     // Vertical Spread Knob
@@ -63,7 +59,6 @@ MDAPPannerAudioProcessorEditor::MDAPPannerAudioProcessorEditor (MDAPPannerAudioP
     verticalSpreadKnob.setRange(0, 1, 0.0001);
     verticalSpreadKnob.setTextBoxStyle(juce::Slider::NoTextBox, true, 40, 20);
     verticalSpreadKnob.setColour(azimuthKnob.textBoxBackgroundColourId, juce::Colours::black);
-    verticalSpreadKnob.setValue(0.0f);
     addAndMakeVisible(&verticalSpreadKnob);
     verticalSpreadKnob.setName("VerticalSpread");
     // Gain Slider
@@ -74,7 +69,6 @@ MDAPPannerAudioProcessorEditor::MDAPPannerAudioProcessorEditor (MDAPPannerAudioP
     gainSlider.setColour(azimuthKnob.textBoxBackgroundColourId, juce::Colours::black);
     gainSlider.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 30, 20);
     gainSlider.setName("Gain");
-    gainSlider.setValue(0);
     addAndMakeVisible(&gainSlider);
     // Gain Label
     addAndMakeVisible(&gainLabel);
@@ -185,12 +179,12 @@ void MDAPPannerAudioProcessorEditor::paint (juce::Graphics& g)
     g.setFont (15.0f);
     g.drawFittedText("Binaural MDAP Panner v1.0", getLocalBounds(), juce::Justification::centredTop, 1);
     g.setColour(juce::Colours::lightgrey);
+    // Draw top head image
+    headTopImage = juce::ImageCache::getFromMemory(BinaryData::TopHead_png, BinaryData::TopHead_pngSize).rescaled(47, 70, juce::Graphics::highResamplingQuality);
+    g.drawImageAt(headTopImage, azimuthKnob.getX() + 57, azimuthKnob.getY() + 53, true);
     // Draw front head image
-    headFrontImage = juce::ImageCache::getFromMemory(BinaryData::FronHead_png, BinaryData::FronHead_pngSize).rescaled(47, 70, juce::Graphics::highResamplingQuality);
-    g.drawImageAt(headFrontImage, azimuthKnob.getX() + 57, azimuthKnob.getY() + 53, true);
-    // Draw side head image
-    headSideImage = juce::ImageCache::getFromMemory(BinaryData::SideHead_png, BinaryData::SideHead_pngSize).rescaled(47, 70, juce::Graphics::highResamplingQuality);;
-    g.drawImageAt(headSideImage, elevationKnob.getX() + 57, elevationKnob.getY() + 53, true);
+    headFrontImage = juce::ImageCache::getFromMemory(BinaryData::FronHead_png, BinaryData::FronHead_pngSize).rescaled(47, 70, juce::Graphics::highResamplingQuality);;
+    g.drawImageAt(headFrontImage, elevationKnob.getX() + 57, elevationKnob.getY() + 53, true);
 }
 
 void MDAPPannerAudioProcessorEditor::resized()

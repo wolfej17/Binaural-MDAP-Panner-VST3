@@ -312,7 +312,7 @@ bool MDAPPannerAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* MDAPPannerAudioProcessor::createEditor()
 {
-     return new MDAPPannerAudioProcessorEditor (*this, parameters);
+    return new MDAPPannerAudioProcessorEditor (*this, parameters);
 }
 
 //==============================================================================

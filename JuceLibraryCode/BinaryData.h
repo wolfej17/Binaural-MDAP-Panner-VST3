@@ -33,7 +33,7 @@ namespace BinaryData
     const int            SideHead_pngSize = 21561;
 
     extern const char*   TopHead_png;
-    const int            TopHead_pngSize = 14319;
+    const int            TopHead_pngSize = 15526;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 9;
