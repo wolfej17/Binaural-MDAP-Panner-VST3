@@ -3,7 +3,7 @@ Stereo-stereo binaural simulation of a custom tetrahedral loudspeaker layout usi
 Can be extended with a bit of setup to simulate any custom loudspeaker layout.
 Created with the [JUCE](https://juce.com/) framework.
 # Intall: 
-Copy the .vst3 component in the build directory to the vst3 location on your machine.
+Copy the .vst3 component in the build directory to the vst3 location on your machine (Windows).
 # License: 
 GPL
 # Picture: 
