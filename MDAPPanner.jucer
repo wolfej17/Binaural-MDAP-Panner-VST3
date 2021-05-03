@@ -13,6 +13,8 @@
       <FILE id="GXK23a" name="azi315el0.wav" compile="0" resource="1" file="Resources/OctahedronHRIRs/azi315el0.wav"/>
     </GROUP>
     <GROUP id="{D0910F8A-C473-A5AB-4258-BED75C7671D9}" name="Source">
+      <FILE id="Gu6kTs" name="JuceAudioMathFormats.cpp" compile="1" resource="0"
+            file="Source/JuceAudioMathFormats.cpp"/>
       <FILE id="naZULR" name="CrossoverFilter.cpp" compile="1" resource="0"
             file="Source/CrossoverFilter.cpp"/>
       <FILE id="xBsCNs" name="CrossoverFilter.h" compile="0" resource="0"

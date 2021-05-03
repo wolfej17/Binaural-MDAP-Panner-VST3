@@ -10,10 +10,10 @@
 
 #include "VirtualLoudspeaker.h"
 #include <BinaryData.h>
+#include <math.h>
 
 VirtualLoudspeaker::VirtualLoudspeaker()
 {
-    
 }
 
 void VirtualLoudspeaker::initializeLoudspeaker(int speakAngle, int speakWindow, int posOffset, int negOffset, bool isHor)
@@ -155,5 +155,6 @@ float VirtualLoudspeaker::scaleRangeOfNumbers(int input, int inputStart, int inp
 
 float VirtualLoudspeaker::calculateConstantPower(int incomingValue, int value1, int value2)
 {
-     return sin(scaleRangeOfFloatingPointNumbers(incomingValue, value1, value2, M_PI * 0.5f, M_PI));
+     constexpr double pi = 3.14159265358979323846;
+     return sin(scaleRangeOfFloatingPointNumbers(incomingValue, value1, value2,  pi * 0.5f, pi));
 }
